@@ -10,8 +10,11 @@ Sync, merge and export with the Accent API
   --merge-type         merge type parameter that will be sent to Accent
                        Available merge types: smart, force and passive
 
-  --format             format parameter that will be sent to Accent
-                       Available format: ios, android, rails, json, es6_module
+  --document-format    format parameter that will be sent to Accent
+                       Available format: strings rails_yml json simple_json android_xml es6_module java_properties java_properties_xml
+                       
+  --document-path      path parameter represent the "module" that the operation targets
+                       This is to support multi file projects in Accent.
 
   --order-by           Order of the keys
                        Available order: key, -key, updated, -updated, index or -index
@@ -20,9 +23,9 @@ Sync, merge and export with the Accent API
   --help               show this message
 
 Examples:
-  accent sync --input-file=locale.json --language=fr --document-format=json
-  accent merge --input-file=activerecord.en.yml --language=en --document-format=json
-  accent export --format=json --language=en
+  accent sync --input-file=locale.json --language=fr --document-format=json --document-path=locale
+  accent merge --input-file=activerecord.en.yml --language=en --document-format=json --document-path=locale
+  accent export --language=en --document-format=json --document-path=locale 
 
 This package only execute cUrl commands. Here is a mapping of an accent cli command vs a cUrl command:
 
@@ -32,9 +35,11 @@ This package only execute cUrl commands. Here is a mapping of an accent cli comm
     --input-file=locale.json
     --language=fr
     --document-format=json
+    --document-path=public-section
 
   curl 'http://accent-url.net/sync'
     -F document-format=json
+    -F document-path=public-section
     -F file=@locale.json
     -F language=fr
     -H 'Authorization: Bearer test1234'"
