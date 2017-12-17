@@ -14,7 +14,7 @@ $ brew install accent
 
 ```bash
 $ accent sync \
-    --api-url=https://mirego-accent-api-v2-prod.herokuapp.com \
+    --api-url=https://api.accent.reviews \
     --api-key=test123 \
     --input-file=locale.json \
     --language=fr
