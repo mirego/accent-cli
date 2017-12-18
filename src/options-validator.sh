@@ -8,6 +8,21 @@ if [ -z "$API_URL" ]; then
   has_error=true
 fi
 
+if [ "$API_URL" -eq "https://accent2.mirego.com" ]; then
+  printf "${UWhite}Suggestion:${Color_Off} The URL should be the API (https://api.accent.reviews), not the Web application ;) \n"
+  has_error=true
+fi
+
+if [ "$API_URL" -eq "https://app.accent.reviews" ]; then
+  printf "${UWhite}Suggestion:${Color_Off} The URL should be the API (https://api.accent.reviews), not the Web application ;) \n"
+  has_error=true
+fi
+
+if [ "$API_URL" -eq "https://www.accent.reviews" ]; then
+  printf "${UWhite}Suggestion:${Color_Off} The URL should be the API (https://api.accent.reviews), not the Web application ;) \n"
+  has_error=true
+fi
+
 if [ -n "$input_file" ] && [ ! -e "$input_file" ]; then
   printf "${UWhite}Parameter error:${Color_Off} \`$input_file\` must be a file\n"
   has_error=true
