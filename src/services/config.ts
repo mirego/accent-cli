@@ -33,9 +33,8 @@ export default class ConfigFetcher {
     nameInConfig: string,
     documentConfigs: DocumentConfig[]
   ) {
-    const documentConfig = documentConfigs.find(
-      ({name}) => name === nameInConfig
-    )
+    const documentConfig =
+      nameInConfig && documentConfigs.find(({name}) => name === nameInConfig)
     if (!documentConfig && nameInConfig) {
       error('No match in your config for this file')
     }
