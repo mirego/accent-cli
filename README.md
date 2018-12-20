@@ -16,18 +16,14 @@ Accent CLI
 <!-- usage -->
 ```sh-session
 $ npm install -g accent-cli
-+ accent-cli@0.4.0
-
 $ accent COMMAND
-…
-
+running command...
 $ accent (-v|--version|version)
-accent-cli/0.3.0 darwin-x64 node-v8.5.0
-
+accent-cli/0.3.0 darwin-x64 node-v11.5.0
 $ accent --help [COMMAND]
 USAGE
   $ accent COMMAND
-  …
+...
 ```
 <!-- usagestop -->
 
@@ -103,6 +99,7 @@ USAGE
 
 OPTIONS
   --mergeType=smart|force|passive  [default: passive]
+  --orderBy=index|key-asc          [default: index]
   --write                          Write the file from the export _after_ the operation
 
 EXAMPLES
@@ -148,7 +145,8 @@ USAGE
   $ accent sync [FILENAME]
 
 OPTIONS
-  --write  Write the file from the export _after_ the operation
+  --orderBy=index|key-asc  [default: index]
+  --write                  Write the file from the export _after_ the operation
 
 EXAMPLES
   $ accent sync
