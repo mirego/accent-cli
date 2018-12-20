@@ -67,11 +67,12 @@ export default class Document {
     return this.handleResponse(response, options, OperationName.AddTranslation)
   }
 
-  public async export(file: string) {
+  public async export(file: string, options: any) {
     const query = [
       ['document_path', this.parseDocumentName(file)],
       ['document_format', this.config.format],
-      ['language', this.config.language]
+      ['language', this.config.language],
+      ['order_by', options.orderBy]
     ]
       .map(([name, value]) => `${name}=${value}`)
       .join('&')

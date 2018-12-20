@@ -30,6 +30,10 @@ export default class AddTranslations extends Command {
       default: 'passive',
       options: ['smart', 'force', 'passive'],
       required: false
+    }),
+    orderBy: flags.string({
+      default: 'index',
+      options: ['index', 'key-asc']
     })
   }
 
@@ -65,7 +69,7 @@ export default class AddTranslations extends Command {
       await Promise.all(
         document.paths.map(path => {
           formatter.log(path)
-          return document.export(path)
+          return document.export(path, flags)
         })
       )
 

@@ -1,4 +1,5 @@
 // Command
+import {flags} from '@oclif/command'
 import Command from '../base-commit'
 
 // Formatters
@@ -20,7 +21,13 @@ export default class Sync extends Command {
   public static examples = [`$ accent sync`, `$ accent sync Localization-admin`]
 
   public static args = [...Command.args]
-  public static flags = {...Command.flags}
+  public static flags = {
+    ...Command.flags,
+    orderBy: flags.string({
+      default: 'index',
+      options: ['index', 'key-asc']
+    })
+  }
 
   public async run() {
     const {args, flags} = this.parse(Sync)
@@ -54,7 +61,7 @@ export default class Sync extends Command {
       await Promise.all(
         document.paths.map(path => {
           formatter.log(path)
-          return document.export(path)
+          return document.export(path, flags)
         })
       )
 
