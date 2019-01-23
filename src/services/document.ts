@@ -123,6 +123,7 @@ export default class Document {
       response.body.pipe(fileStream)
       response.body.on('error', reject)
       fileStream.on('finish', resolve)
+      fileStream.on('error', reject)
     })
   }
 

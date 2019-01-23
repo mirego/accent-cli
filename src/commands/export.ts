@@ -44,8 +44,10 @@ export default class Export extends Command {
 
       await Promise.all(
         targets.map(({path, language, documentPath}) => {
-          formatter.log(path)
-          return document.export(path, language, documentPath, flags)
+          return document
+            .export(path, language, documentPath, flags)
+            .then(() => formatter.log(path))
+            .catch(error => formatter.log(path, error.message))
         })
       )
 
