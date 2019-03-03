@@ -31,4 +31,11 @@ export default abstract class extends Command {
     cli.action.stop(chalk.green('✓'))
     console.log('')
   }
+
+  public async refreshProject() {
+    const config = this.projectConfig.config
+
+    const fetcher = new ProjectFetcher()
+    this.project = await fetcher.fetch(config)
+  }
 }

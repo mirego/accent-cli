@@ -83,6 +83,9 @@ export default class Sync extends Command {
     }
 
     if (!flags.write) return
+    // After syncing the files in Accent, the list of documents could have changed.
+    await this.refreshProject()
+
     const formatter = new DocumentExportFormatter()
 
     // From all the documentConfigs, do the export, write to local file and log the results.

@@ -109,6 +109,22 @@ export default class Document {
     return this.writeResponseToFile(response, file)
   }
 
+  public async exportJipt(file: string, documentPath: string) {
+    const query = [
+      ['document_path', documentPath],
+      ['document_format', this.config.format]
+    ]
+      .map(([name, value]) => `${name}=${value}`)
+      .join('&')
+
+    const url = `${this.apiUrl}/jipt-export?${query}`
+    const response = await fetch(url, {
+      headers: this.authorizationHeader()
+    })
+
+    return this.writeResponseToFile(response, file)
+  }
+
   private authorizationHeader() {
     return {authorization: `Bearer ${this.apiKey}`}
   }
