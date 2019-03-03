@@ -20,9 +20,9 @@ export default class Jipt extends Command {
 
   public static args = [
     {
+      description: 'The pseudo language for in-place-translation-editing',
       name: 'pseudoLanguageName',
-      required: true,
-      description: 'The pseudo language for in-place-translation-editing'
+      required: true
     }
   ]
   public static flags = {}

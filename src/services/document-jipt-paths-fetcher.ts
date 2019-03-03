@@ -18,8 +18,8 @@ export default class DocumentJiptPathsFetcher {
 
         return {
           documentPath: path,
-          path: parsedTarget,
-          language: pseudoLanguageName
+          language: pseudoLanguageName,
+          path: parsedTarget
         }
       })
   }

@@ -72,12 +72,13 @@ Here is a list of available hooks. Those are self-explanatory
 
 # Commands
 <!-- commands -->
-* [accent export](#accent-export)
-* [accent help [COMMAND]](#accent-help-command)
-* [accent stats](#accent-stats)
-* [accent sync](#accent-sync)
+* [`accent export`](#accent-export)
+* [`accent help [COMMAND]`](#accent-help-command)
+* [`accent jipt PSEUDOLANGUAGENAME`](#accent-jipt-pseudolanguagename)
+* [`accent stats`](#accent-stats)
+* [`accent sync`](#accent-sync)
 
-## accent export
+## `accent export`
 
 Export files from Accent and write them to your local filesystem
 
@@ -92,7 +93,7 @@ EXAMPLE
   $ accent export
 ```
 
-## accent help [COMMAND]
+## `accent help [COMMAND]`
 
 display help for accent
 
@@ -109,7 +110,22 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.4/src/commands/help.ts)_
 
-## accent stats
+## `accent jipt PSEUDOLANGUAGENAME`
+
+Export jipt files from Accent and write them to your local filesystem
+
+```
+USAGE
+  $ accent jipt PSEUDOLANGUAGENAME
+
+ARGUMENTS
+  PSEUDOLANGUAGENAME  The pseudo language for in-place-translation-editing
+
+EXAMPLE
+  $ accent jipt
+```
+
+## `accent stats`
 
 Fetch stats from the API and display it beautifully
 
@@ -121,7 +137,7 @@ EXAMPLE
   $ accent stats
 ```
 
-## accent sync
+## `accent sync`
 
 Sync files in Accent and write them to your local filesystem
 
